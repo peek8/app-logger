@@ -181,15 +181,9 @@ Plus:
 
 # Docker Usage
 
-```dockerfile
-FROM golang:1.22-alpine
+```bash
+$ docker run ghcr.io/peek8/app-logger:latest 
 
-WORKDIR /app
-COPY . .
-
-RUN go build -o app-logger
-
-CMD ["./app-logger", "--mode=chaos", "--rate=20"]
 ```
 
 ---
@@ -213,7 +207,7 @@ spec:
     spec:
       containers:
         - name: loggen
-          image: app-logger:latest
+          image: ghcr.io/peek8/app-logger:latest 
           args:
             - "--mode=chaos"
             - "--rate=20"
