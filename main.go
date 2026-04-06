@@ -22,6 +22,14 @@ import (
 func main() {
 	cfg := model.Config{}
 
+	versionCMD := flag.NewFlagSet("version", flag.ExitOnError)
+
+	if len(os.Args) > 1 && os.Args[1] == "version" {
+		versionCMD.Parse(os.Args[2:])
+		fmt.Println("app-logger version 0.1.1")
+		return
+	}
+
 	flag.StringVar(&cfg.Mode, "mode", "random", "")
 	flag.StringVar(&cfg.Scenario, "scenario", "", "")
 	flag.IntVar(&cfg.Rate, "rate", 10, "")
